@@ -33,6 +33,8 @@ const config: Config = {
       publisherDarkContent: "#2E324A",
       publisherDarkIcon: "#B5BEE3",
       publisherCon: "#2F3348",
+      publisherCategory: "#232744",
+      publisherCategoryDark: "#171932",
     },
     fontFamily: {
       Dunbar: "Dunbar Low",
@@ -43,9 +45,6 @@ const config: Config = {
     boxShadow: {
       publisherShadow: "rgba(165, 163, 174, 0.15) 0px 0px 6px 4px",
       publisherDarkShadow: "rgba(0, 0, 0, 0.15) 0px 0px 6px 4px",
-    },
-    transitionDuration: {
-      transition: ".3s",
     },
   },
   plugins: [],

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.transition {
+  transition: all 0.3s;
+}
 @layer base {
   :root {
   }

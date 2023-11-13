@@ -19,7 +19,6 @@ const Page: React.FC = () => {
     >
   ] = React.useState([] as { name: any; url: string; size: number }[]);
 
-  const [isDraging, setIsDraging] = React.useState(false);
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   const icon = icons();
@@ -102,14 +101,14 @@ const Page: React.FC = () => {
                 <CustomInput
                   name="type"
                   pl="type"
-                  formClass="w-[48%] "
+                  formClass="w-[47.5%] "
                   Class="w-full"
                   value="Type"
                 />
                 <CustomInput
                   name="bar-code"
                   pl="0123-4567"
-                  formClass="w-[48%] "
+                  formClass="w-[47.5%] "
                   Class="w-full"
                   value="Bar-Code"
                 />
@@ -175,7 +174,7 @@ const Page: React.FC = () => {
                         images.map((el, index) => (
                           <div
                             key={index}
-                            className="w-44 h-60  mx-4 bg-white shadow-shadow1 rounded-lg my-2 dark:bg-publishDark"
+                            className="w-44 h-60  mx-4 bg-white shadow-publisherShadow rounded-lg my-2 dark:bg-publishDark dark:shadow-publisherDarkShadow"
                           >
                             <div className="w-full h-36 p-4 ">
                               <CustomImage
@@ -193,7 +192,19 @@ const Page: React.FC = () => {
                               </p>
                             </div>
                             <hr className=" border-[#DBDADE]" />
-                            <div className="capitalize text-[14px] flex justify-center items-center mt-1 dark:text-publisherDarkTextColor1	">
+                            <div
+                              className="capitalize text-[14px] flex justify-center items-center mt-1 dark:text-publisherDarkTextColor1 cursor-pointer hover:text-[red]	dark:hover:text-[red] transition"
+                              onClick={() => {
+                                if (fileInputRef.current !== null) {
+                                  fileInputRef.current.value = "";
+                                  setImages((prev) =>
+                                    prev.filter(
+                                      (el) => el.name !== images[index].name
+                                    )
+                                  );
+                                }
+                              }}
+                            >
                               remove file
                             </div>
                           </div>

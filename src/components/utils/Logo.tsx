@@ -10,19 +10,17 @@ type LogoProps = {
 const Logo: React.FC<LogoProps> = (props) => {
   const path = useRouter();
   return (
-    <div className="logo">
-      <Link href="/">
-        <CustomImage
-          img={props.img}
-          alt="main logo"
-          //   priority={true}
-          name={props.name}
-          click={() => {
-            path.push("/");
-          }}
-        />
-      </Link>
-    </div>
+    <Link href="/">
+      <CustomImage
+        img={props.img}
+        alt="main logo"
+        //   priority={true}
+        name={props.name}
+        click={() => {
+          path.push("/");
+        }}
+      />
+    </Link>
   );
 };
 export default Logo;
