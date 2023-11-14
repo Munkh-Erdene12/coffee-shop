@@ -6,6 +6,7 @@ import {
   HiOutlineChatAlt2,
 } from "react-icons/hi";
 import { BsUpload, BsMoon } from "react-icons/bs";
+import { TiMediaPlayOutline } from "react-icons/ti";
 import {
   AiOutlineClose,
   AiOutlineUnorderedList,
@@ -21,6 +22,7 @@ export default function icons() {
     BsMoon,
     HiOutlineMailOpen,
     HiOutlineChatAlt2,
+    TiMediaPlayOutline,
   };
   return obj;
 }

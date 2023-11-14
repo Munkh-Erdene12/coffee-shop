@@ -5,6 +5,34 @@
 .transition {
   transition: all 0.3s;
 }
+.translate {
+  transform: translate(-50%, -50%);
+}
+.media-child {
+  &:hover {
+    animation: infinite 1s scale;
+  }
+}
+.close {
+  &:hover {
+    transform: rotate(180deg);
+    transition: all 1s;
+  }
+  transition: all 1s;
+  transform: rotate(0deg);
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: translate(1);
+  }
+}
 @layer base {
   :root {
   }

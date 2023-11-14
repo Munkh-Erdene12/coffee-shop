@@ -35,10 +35,17 @@ const config: Config = {
       publisherCon: "#2F3348",
       publisherCategory: "#232744",
       publisherCategoryDark: "#171932",
+
+      color1: "#291206",
+      color_1_hover: "#85460d",
+      color2: "#737373",
+      color3: "#c7803f",
+      shadow: "rgba(0, 0, 0, 0.5)",
     },
     fontFamily: {
       Dunbar: "Dunbar Low",
       Light: "DunbarLow-Light",
+      dunbarbook: "DunbarLow-Book",
       LeMonde: "LeMonde Livre Classic Normal",
     },
 
