@@ -2,6 +2,32 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/lib/prisma";
 import colors from "colors";
 import uploadImage from "@/app/lib/upload";
+export async function GET(req) {
+  try {
+    let limit = parseInt(req.nextUrl.searchParams.get("limit")) || 100;
+    let type = req.nextUrl.searchParams.get("name");
+    const data = await prisma.product.findMany({
+      take: limit,
+      where: type ? { type: type } : {},
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+    if (data.length === 0) {
+      return NextResponse.json({ message: "No product found" });
+    }
+    return NextResponse.json({
+      message: "success",
+      dataLength: data.length,
+      data,
+    });
+  } catch (err) {
+    if (err) {
+      console.log(`Алдаа гарлаа: ${err.message}`.underline.red);
+    }
+    return NextResponse.json({ error: "Алдааа гарлаа" }, { status: 400 });
+  }
+}
 export async function POST(req) {
   try {
     let images = "";

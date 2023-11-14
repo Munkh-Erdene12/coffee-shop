@@ -23,3 +23,47 @@
       }
     }
   };
+
+
+
+"use client";
+import React, { Component } from "react";
+import {
+  Inject,
+  ScheduleComponent,
+  Day,
+  Week,
+  WorkWeek,
+  Month,
+  Agenda,
+  EventSettingsModel,
+} from "@syncfusion/ej2-react-schedule";
+import "@syncfusion/ej2-react-schedule/styles/material.css";
+
+import AdminMainDesign from "@/components/admin/AdminMainDesign"; //#endregion
+import PublisherContainer from "@/components/publisher/PublisherContainer";
+export default class page extends Component {
+  private localDate: EventSettingsModel = {
+    dataSource: [
+      {
+        EndTime: new Date(2023, 0, 11, 6, 30),
+        StartTime: new Date(2023, 0, 11, 4, 0),
+      },
+    ],
+  };
+  render() {
+    return (
+      <AdminMainDesign>
+        <PublisherContainer>
+          <ScheduleComponent
+            currentView="Month"
+            selectedDate={new Date()}
+            eventSettings={this.localDate}
+          >
+            <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+          </ScheduleComponent>
+        </PublisherContainer>
+      </AdminMainDesign>
+    );
+  }
+}
