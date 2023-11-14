@@ -11,38 +11,11 @@ import { CustomImage } from "@/components/utils/CustomImage";
 import Category from "@/components/utils/Category";
 import Status from "@/components/publisher/Status";
 import PublisherTags from "@/components/publisher/PublisherTags";
+import { PublisherContext } from "@/context/PublisherContext";
 const Page: React.FC = () => {
-  const [images, setImages]: [
-    { name: any; url: string; size: number }[],
-    React.Dispatch<
-      React.SetStateAction<{ name: any; url: string; size: number }[]>
-    >
-  ] = React.useState([] as { name: any; url: string; size: number }[]);
-
-  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
-
+  const ctx = React.useContext(PublisherContext);
   const icon = icons();
-  const selectedFiles = () => {
-    fileInputRef.current?.click();
-  };
 
-  const onFileSelect = (event: any) => {
-    const files = event.target.files;
-    if (files.length === 0) return;
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split("/")[0] !== "image") continue;
-      if (!images.some((e) => e.name === files[i].name)) {
-        setImages((prev) => [
-          ...prev,
-          {
-            name: files[i].name,
-            url: URL.createObjectURL(files[i]),
-            size: files[i].size,
-          },
-        ]);
-      }
-    }
-  };
   return (
     <AdminMainDesign>
       <PublisherContainer>
@@ -77,6 +50,7 @@ const Page: React.FC = () => {
               <PublisherBtn
                 name="w-36 bg-[#7367f0] shadow-shadow1 text-white hover:bg-[#685dd8] "
                 value="Publish product"
+                click={ctx.handleSubmit}
               />
             </div>
           </div>
@@ -91,11 +65,12 @@ const Page: React.FC = () => {
                 Product information
               </p>
               <CustomInput
-                name="proudct-title"
+                name="proudctTitle"
                 pl="Product title"
                 Class="w-full"
                 formClass="mt-5"
                 value="Name"
+                change={ctx.handleChangeValue}
               />
               <div className="w-full flex justify-between">
                 <CustomInput
@@ -103,14 +78,18 @@ const Page: React.FC = () => {
                   pl="type"
                   formClass="w-[47.5%] "
                   Class="w-full"
-                  value="Type"
+                  value="Type -> Category*"
+                  con={ctx.state.selectedCategory}
+                  read={true}
+                  change={ctx.handleChangeValue}
                 />
                 <CustomInput
-                  name="bar-code"
+                  name="barCode"
                   pl="0123-4567"
                   formClass="w-[47.5%] "
                   Class="w-full"
                   value="Bar-Code"
+                  change={ctx.handleChangeValue}
                 />
               </div>
               <div className="mt-5" id="publisher-description">
@@ -119,6 +98,8 @@ const Page: React.FC = () => {
                   <textarea
                     placeholder="Desctiption...."
                     className=" w-full h-full focus:outline-none p-2 rounded-lg dark:bg-publisherCon"
+                    name="description"
+                    onChange={ctx.handleChangeValue}
                   ></textarea>
                 </div>
               </div>
@@ -141,13 +122,13 @@ const Page: React.FC = () => {
                     type="file"
                     multiple
                     className="invisible"
-                    ref={fileInputRef}
-                    onChange={onFileSelect}
+                    ref={ctx.fileInputRef}
+                    onChange={ctx.onFileSelect}
                   ></input>
-                  {images.length === 0 ? (
+                  {ctx.images.length === 0 ? (
                     <div
                       className="flex justify-center flex-col items-center w-full h-full text-center cursor-pointer"
-                      onClick={() => selectedFiles()}
+                      onClick={() => ctx.selectedFiles()}
                     >
                       <div className="h-10 w-10 bg-[#F1F1F2] flex justify-center items-center rounded-lg">
                         <icon.BsUpload className="text-[#5C596C]" />
@@ -160,7 +141,7 @@ const Page: React.FC = () => {
                       </span>
                       <button
                         className="w-32 h-9 bg-[#EAE8FD] text-[15px] rounded-md text-[#7366F0]"
-                        onClick={() => selectedFiles()}
+                        onClick={() => ctx.selectedFiles()}
                       >
                         Browse image
                       </button>
@@ -168,10 +149,10 @@ const Page: React.FC = () => {
                   ) : (
                     <div
                       className="flex-wrap flex w-full h-auto justify-center md:justify-start "
-                      onClick={selectedFiles}
+                      onClick={ctx.selectedFiles}
                     >
-                      {images.length > 0 &&
-                        images.map((el, index) => (
+                      {ctx.images.length > 0 &&
+                        ctx.images.map((el: any, index: any) => (
                           <div
                             key={index}
                             className="w-44 h-60  mx-4 bg-white shadow-publisherShadow rounded-lg my-2 dark:bg-publishDark dark:shadow-publisherDarkShadow"
@@ -195,11 +176,12 @@ const Page: React.FC = () => {
                             <div
                               className="capitalize text-[14px] flex justify-center items-center mt-1 dark:text-publisherDarkTextColor1 cursor-pointer hover:text-[red]	dark:hover:text-[red] transition"
                               onClick={() => {
-                                if (fileInputRef.current !== null) {
-                                  fileInputRef.current.value = "";
-                                  setImages((prev) =>
+                                if (ctx.fileInputRef.current !== null) {
+                                  ctx.fileInputRef.current.value = "";
+                                  ctx.setImages((prev: any) =>
                                     prev.filter(
-                                      (el) => el.name !== images[index].name
+                                      (el: any) =>
+                                        el.name !== ctx.images[index].name
                                     )
                                   );
                                 }
@@ -234,12 +216,14 @@ const Page: React.FC = () => {
                 Class="w-full"
                 formClass="mt-5"
                 value="Base price"
+                change={ctx.handleChangeValue}
               />
               <CustomInput
-                name="price"
+                name="discountedPrice"
                 pl="Discounted price"
                 Class="w-full"
                 value="Discounted price"
+                change={ctx.handleChangeValue}
               />
               <hr className="border-publisherBorder dark:publisherDarkBorder mt-8" />
               <div className="mt-5">
