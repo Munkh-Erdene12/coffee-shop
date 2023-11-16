@@ -2,45 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
-.transition {
-  transition: all 0.3s;
-}
-.translate {
-  transform: translate(-50%, -50%);
-}
-.media-child {
-  &:hover {
-    animation: infinite 1s scale;
+@layer utilities {
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
   }
-}
-.close {
-  &:hover {
-    transform: rotate(180deg);
-    transition: all 1s;
+  .transition {
+    transition: all 0.3s;
   }
-  transition: all 1s;
-  transform: rotate(0deg);
-}
-
-@keyframes scale {
-  0% {
-    transform: scale(1);
+  .transitionLiner {
+    transition: linear 0.3s;
   }
-  50% {
-    transform: scale(1.1);
+  .translate {
+    transform: translate(-50%, -50%);
   }
-  100% {
-    transform: translate(1);
-  }
-}
-@layer base {
-  :root {
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  .media-child {
+    &:hover {
+      animation: infinite 1s scale;
     }
-    #publisher {
-      background: --bg-publisherDark;
+  }
+  .close {
+    &:hover {
+      transform: rotate(180deg);
+      transition: all 1s;
+    }
+    transition: all 1s;
+    transform: rotate(0deg);
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: translate(1);
+    }
+  }
+  .coffees {
+    display: grid;
+    grid-template-rows: repeat(6, 194px);
+    grid-template-columns: repeat(1, 300px);
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    .coffe_vm {
+      .img_coffee {
+        left: -40px;
+        top: calc(174px - 78%);
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+    }
+  }
+  .main_banner_4 {
+    display: grid;
+    grid-template-columns: repeat(1, 80%);
+    grid-template-rows: repeat(8, auto);
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    .img_4 {
+      background: linear-gradient(
+        0deg,
+        rgb(251, 248, 239) 0%,
+        rgb(255, 255, 255) 100%
+      );
+      transition: color 0.3s ease-in-out, background 22s;
+      &:hover {
+        background: rgb(254, 251, 246);
+        background: linear-gradient(
+          0deg,
+          rgb(252, 234, 205) 0%,
+          rgb(250, 241, 232) 35%,
+          rgb(255, 255, 255) 100%
+        );
+      }
+      img {
+        object-fit: contain;
+        position: absolute;
+        bottom: -20px;
+      }
+    }
+  }
+  .main_information_2 {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(6, 331px);
+    margin-top: 30px;
+  }
+  @media (min-width: 768px) {
+    .coffees {
+      width: 60%;
+      height: 100%;
+      gap: 45px;
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(3, auto);
+      .coffe_vm .img_coffee {
+        top: 25% !important;
+      }
+    }
+    .main_banner_4 {
+      margin-top: 34px;
+      grid-template-columns: repeat(3, 29%);
+      grid-template-rows: repeat(3, auto);
+      gap: 10px;
+    }
+    .main_information_2 {
+      grid-template-columns: repeat(3, 33.33%);
+      grid-template-rows: repeat(2, 350px);
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .coffees {
+      width: 50%;
+      grid-template-columns: repeat(2, 300px);
+      grid-template-rows: repeat(3, auto);
+    }
+    .main_banner_4 {
+      grid-template-columns: repeat(4, 20%);
+      justify-content: space-around;
+      width: 100%;
+      .main_coffe_4 .img_4 {
+        height: 240px;
+      }
     }
   }
 }

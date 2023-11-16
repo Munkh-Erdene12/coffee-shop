@@ -15,8 +15,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+
     container: {
       padding: "20px",
+    },
+    backgroundImage: {
+      maincoffee2: "url('/assets/images/main_banner_2.jpeg')",
     },
     colors: {
       white: "#FFFFFF",
@@ -40,7 +44,6 @@ const config: Config = {
       color_1_hover: "#85460d",
       color2: "#737373",
       color3: "#c7803f",
-      shadow: "rgba(0, 0, 0, 0.5)",
     },
     fontFamily: {
       Dunbar: "Dunbar Low",
@@ -52,6 +55,8 @@ const config: Config = {
     boxShadow: {
       publisherShadow: "rgba(165, 163, 174, 0.15) 0px 0px 6px 4px",
       publisherDarkShadow: "rgba(0, 0, 0, 0.15) 0px 0px 6px 4px",
+      shadow: "rgba(0, 0, 0, 0.5);",
+      shadow2: "rgba(0, 0, 0, 0.1) 0px 0px 15px 0px",
     },
   },
   plugins: [],
