@@ -29,7 +29,7 @@ const config: Config = {
       publisherDarkBorder: "#434968",
       publisherBorder: "#DBDADE",
       publisherDarkTextColor: "#cfd3ec",
-      publisherTextColor: "#5C596C",
+      publisherTextColor: "#5d596c",
       publisherDarkTextColor1: "#7983BB",
       publisherTextColor1: "#A5A3AE",
       publisherDarkSubColor: "#51597F",
@@ -44,6 +44,8 @@ const config: Config = {
       color_1_hover: "#85460d",
       color2: "#737373",
       color3: "#c7803f",
+
+      modalShadow: "rgba(0, 0, 0, 0.5)",
     },
     fontFamily: {
       Dunbar: "Dunbar Low",

@@ -13,6 +13,7 @@ interface Category {
 }
 type props = {
   children?: React.ReactNode;
+  name?: string;
 };
 export default function Category(props: props) {
   const { data, isLoading, isError } = useCategoryData();
@@ -27,7 +28,7 @@ export default function Category(props: props) {
   }, [data]);
 
   return (
-    <div className="mt-6">
+    <div className={`${props.name ? props.name : "mt-6"}`}>
       {props.children}
       {isLoading ? (
         <Skeleton height={30} />

@@ -4,9 +4,11 @@ import Skeleton from "react-loading-skeleton";
 export default function CoffeLoading({
   count,
   name,
+  listcount,
 }: {
   count: number;
   name: string;
+  listcount?: number;
 }) {
   return Array(count)
     .fill(0)
@@ -16,7 +18,10 @@ export default function CoffeLoading({
           <Skeleton circle={true} height={45} width={45} />
         </div>
         <div className="w-[75%]">
-          <Skeleton count={4} style={{ margin: "5px 0" }} />
+          <Skeleton
+            count={listcount ? listcount : 4}
+            style={{ margin: "5px 0" }}
+          />
         </div>
       </div>
     ));

@@ -9,3 +9,11 @@ export const PublsherTags = [
   { value: "Standart" },
   { value: "Premium" },
 ];
+export const StockLink = ["Stock", "Out of Stock", "In stock"];
+export const categoryLinks = [
+  "category",
+  "Price",
+  "status",
+  "createdUser",
+  "barCode",
+];

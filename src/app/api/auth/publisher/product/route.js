@@ -12,6 +12,9 @@ export async function GET(req) {
       orderBy: {
         createdAt: "asc",
       },
+      include: {
+        category: true,
+      },
     });
     if (data.length === 0) {
       return NextResponse.json({ message: "No product found" });

@@ -8,6 +8,9 @@
     margin: auto;
     padding: 0 20px;
   }
+  .center {
+    transform: translate(-50%, -50%);
+  }
   .transition {
     transition: all 0.3s;
   }
@@ -98,6 +101,17 @@
     grid-template-rows: repeat(6, 331px);
     margin-top: 30px;
   }
+  .finance {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(4, 128px);
+    .list {
+      border-bottom: 1px solid #dbdade;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
   @media (min-width: 768px) {
     .coffees {
       width: 60%;
@@ -121,6 +135,38 @@
       justify-content: center;
       gap: 10px;
     }
+    .dark {
+      &:nth-child(odd) {
+        border-right: 1px solid #434968;
+      }
+      &:nth-child(1) {
+        border-bottom: 1px solid #434968;
+      }
+      &:nth-child(2) {
+        border-bottom: 1px solid #434968;
+      }
+    }
+    .finance {
+      grid-template-columns: repeat(2, 50%);
+      justify-content: space-between;
+      grid-template-rows: repeat(2, 128px);
+
+      .list {
+        &:nth-child(odd) {
+          border-right: 1px solid #dbdade;
+          padding: 0 20px;
+        }
+        &:nth-child(even) {
+          padding: 0 20px;
+        }
+        &:nth-child(1) {
+          border-bottom: 1px solid #dbdade;
+        }
+        &:nth-child(2) {
+          border-bottom: 1px solid #dbdade;
+        }
+      }
+    }
   }
   @media (min-width: 1024px) {
     .coffees {
@@ -134,6 +180,30 @@
       width: 100%;
       .main_coffe_4 .img_4 {
         height: 240px;
+      }
+    }
+    .finance {
+      grid-template-columns: repeat(4, 25%);
+      justify-content: space-between;
+      grid-template-rows: repeat(1, 128px);
+
+      .list {
+        border: none;
+        &:nth-child(odd) {
+          border-right: 1px solid #dbdade;
+          padding: 0 20px;
+        }
+        &:nth-child(even) {
+          padding: 0 20px;
+        }
+        &:nth-child(1) {
+          border-bottom: none;
+          border-right: 1px solid #dbdade;
+        }
+        &:nth-child(2) {
+          border-bottom: none;
+          border-right: 1px solid #dbdade;
+        }
       }
     }
   }

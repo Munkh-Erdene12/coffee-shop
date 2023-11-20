@@ -17,7 +17,9 @@ export default function PublisherStore(props) {
   });
   const [images, setImages] = React.useState([]);
   const fileInputRef = React.useRef(null);
-
+  const [list, setList] = React.useState(7);
+  const [modalData, setModalData] = React.useState();
+  const [modal, setModal] = React.useState(false);
   const handleWriteChange = (value) => {
     setWrite((prev) => {
       return { ...prev, [value]: !prev[value] };
@@ -125,12 +127,23 @@ export default function PublisherStore(props) {
       console.error("Алдаа гарлаа:", error);
     }
   };
+  const handleDataModal = (el) => {
+    setModalData(el);
+  };
+  const modalToggle = () => {
+    setModal((prev) => !prev);
+  };
   return (
     <PublisherContext.Provider
       value={{
         state,
         fileInputRef,
         images,
+        list,
+        modalData,
+        modal,
+        setList,
+        modalToggle,
         setImages,
         handleWriteChange,
         handleSwitchTheme,
@@ -140,6 +153,7 @@ export default function PublisherStore(props) {
         handleSelectChange,
         handleChangeCategory,
         handleSubmit,
+        handleDataModal,
       }}
     >
       {props.children}

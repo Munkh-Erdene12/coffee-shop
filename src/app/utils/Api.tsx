@@ -44,3 +44,23 @@ export function useCoffeData() {
     isError: error,
   };
 }
+export function useAllProductsData() {
+  const { data, error } = useSWR("/api/auth/publisher/product", fetcher, {
+    refreshInterval: 6000,
+  });
+  return {
+    data,
+    isLoading: !data && !error,
+    isError: error,
+  };
+}
+export function useSlideData() {
+  const { data, error } = useSWR("/api/auth/publisher/slide", fetcher, {
+    revalidateOnFocus: false,
+  });
+  return {
+    data,
+    isLoading: !data && !error,
+    isError: error,
+  };
+}
