@@ -131,3 +131,318 @@ export default class page extends Component {
             <icon.FaTrashAlt></icon.FaTrashAlt>
           </div>
         </div>
+
+
+
+
+          React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setSticky("");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);W<W
+
+
+
+
+
+
+
+   <>
+      <section className="detail h-auto relative transition">
+        <MainHeader />
+        <div className="container">
+          <div className="main-detail">
+            <div className="left">
+              {state.url !== null ? (
+                <CustomImage
+                  img={`${state.url}${state.img}`}
+                  alt={`detail ${params.get("id")}`}
+                />
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="right">
+              <div className="static-url">
+                Home / Shop / {state.name !== null && state.name}
+              </div>
+              <div className="title-detail">
+                {state.name !== null && state.name}
+                <p className="price-detail">
+                  ₮{state.price !== null && state.price}
+                </p>
+              </div>
+              <div className="description">
+                {state.description !== null && state.description}
+              </div>
+              <div className="size">
+                <p>size:</p>
+                <div className="sizelm">
+                  <div
+                    className={
+                      size === "L" ? "child_size active" : "child_size"
+                    }
+                    onClick={() => setSize("L")}
+                  >
+                    L
+                  </div>
+                  <div
+                    className={
+                      size === "M" ? "child_size active" : "child_size"
+                    }
+                    onClick={() => setSize("M")}
+                  >
+                    M
+                  </div>
+                  <div
+                    className={
+                      size === "X" ? "child_size active" : "child_size"
+                    }
+                    onClick={() => setSize("X")}
+                  >
+                    X
+                  </div>
+                </div>
+                <div className="ks"></div>
+              </div>
+              <div className="count-buy">
+                <div className="count">
+                  <div className="count_child">
+                    <button
+                      onClick={() => count > 0 && setCount((prev) => prev - 1)}
+                    >
+                      -
+                    </button>
+                    {count}
+                    <button onClick={() => setCount((prev) => prev + 1)}>
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="buy"
+                  onClick={() => setByModal((prev) => !prev)}
+                >
+                  Add To Cart
+                </div>
+              </div>
+              <div className="wish-lms">
+                <div className="wishlist">
+                  <icon.AiOutlineHeart /> Add To Wishlist
+                </div>
+                <div className="compore">
+                  <icon.FaCompressAlt />
+                  Add To Compore
+                </div>
+              </div>
+              <div className="tag-k">
+                <p>
+                  SKU <span>REAF.LA-1188</span>
+                </p>
+                <p className="category-lm">
+                  category:<span>{state.type !== null && state.type}</span>
+                </p>
+                <p className="cagtegory-tag">
+                  tag: <span>{state.type !== null && state.type}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full  justify-between">
+            <DetailHeader
+              value="Description"
+              click={() => handleDesc("desc")}
+              name={other.desc}
+            >
+              <div
+                className={`w-full h-auto flex flex-col ${
+                  other.desc ? clas : oth
+                } md:overflow-auto md:max-h-max md:flex-row md:my-10`}
+              >
+                <div>
+                  {detailDesc.map((el, index) => (
+                    <React.Suspense fallback={<div>loading</div>} key={index}>
+                      <h3 className="text-[22px] font-LeMonde text-color1 hover:text-color_1_hover transition my-2">
+                        {el.title}
+                      </h3>
+                      <p className="text-color2 font-dunbarbook leading-7">
+                        {el.value}
+                      </p>
+                      <p className="text-color2 font-dunbarbook leading-7 mb-5">
+                        {el.value1}
+                      </p>
+                    </React.Suspense>
+                  ))}
+                </div>
+                <div className="w-full h-56 md:h-72 ml-2">
+                  <CustomImage
+                    img="/assets/images/desc.jpeg"
+                    alt="desc"
+                    name="w-full h-full object-cover"
+                  ></CustomImage>
+                </div>
+              </div>
+            </DetailHeader>
+            <DetailHeader
+              value="additional information"
+              click={() => handleDesc("info")}
+              name={other.info}
+            >
+              <div className={`${other.info ? clas : oth}`}>
+                <div
+                  className={`w-full h-11 border border-solid border-[#D9D9D9]  my-5 flex  `}
+                >
+                  <div className="w-2/5 h-full border-r border-r-solid border-r-[#D9D9D9] justify-start items-center flex px-3 font-dunbarbook text-color1">
+                    <p>Size</p>
+                  </div>
+                  <div className="w-3/5 h-full justify-start items-center flex px-3 font-LeMonde text-color2">
+                    L, M, X
+                  </div>
+                </div>
+              </div>
+            </DetailHeader>
+            <DetailHeader
+              value="reviews"
+              click={() => handleDesc("review")}
+              name={other.review}
+            >
+              <div className={`${other.review ? clas : oth}`}>
+                <h3 className="text-[22px] font-LeMonde my-8">Reviews</h3>
+                <p className="text-[16px] font-dunbarbook text-color2 mb-5">
+                  There are no reviews yet
+                </p>
+                <div className="text-[20px] text-color1 font-dunbarbook mb-4">
+                  Be the first to review {state.name}
+                </div>
+                <span className="text-[16px] italic text-color2 font-Light ">
+                  Your email address will not be published. Required fields are
+                  marked *
+                </span>
+                <div className="flex items-center">
+                  <p className="my-4 capitalize font-dunbarbook text-color2">
+                    your rating*
+                  </p>
+                  <div className="flex ml-5 cursor-pointer">
+                    {Array(5)
+                      .fill(5)
+                      .map((el, index) => (
+                        <icon.IoStarOutline
+                          key={index}
+                          className={`mx-1 text-[#f5a626]`}
+                        />
+                      ))}
+                  </div>
+                </div>
+                <div className="">
+                  <ReviewTitle name="Your review *"></ReviewTitle>
+                  <ReviewInput name="h-28"></ReviewInput>
+                  <div className="md:flex justify-between w-3/5">
+                    <div className="md:w-3/6 md:mr-2">
+                      <ReviewTitle name="Name *"></ReviewTitle>
+                      <ReviewInput name="h-9"></ReviewInput>
+                    </div>
+                    <div className="md:w-3/6 md:ml-2">
+                      <ReviewTitle name="Email *"></ReviewTitle>
+                      <ReviewInput name="h-9"></ReviewInput>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <input type="checkbox" className="mr-4 w-4 h-4" />
+                    <p className="text-[16px]  text-color2 font-dunbarbook  mb-4">
+                      Save my name, email, and website in this browser for the
+                      next time I comment. *
+                    </p>
+                  </div>
+                  <button className="h-12 w-36 border border-[#d9d9d9] text-color1 font-leMonde text-[18px] hover:bg-color1 hover:text-white transition">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </DetailHeader>
+          </div>
+        </div>
+        {ctx.buyModal.modal && (
+          <BuyModal
+            state={state}
+            count={count}
+            size={size}
+            click={ctx.HandleBuyModalToggle}
+          ></BuyModal>
+        )}
+        {/* <OtherModal>
+
+        <OtherModalTitle value="Add Note for Seller"/>
+          <textarea
+            className="w-full h-[150px] border boder-solid border-[#d9d9d9] my-3 font-dunbarbook p-3"
+            placeholder="Notes about your order, e.g. special notes for delivery."
+          />
+          <button className="w-full h-11 bg-color1 text-white font-dunbarbook hover:bg-color3 transition">
+            Save
+          </button>
+          <button className="w-full h-11 text-color1 hover:text-color3 transition font-dunbarbook">
+            Cancel
+          </button>
+        </OtherModal> */}
+        {/* <OtherModal>
+          <OtherModalTitle value="Estimate shipping rates"></OtherModalTitle>
+          <select className="font-dunbarbook bordervm">
+            <option value="Baynzurh">Baynzurh</option>
+            <option value="Baynzurh">Han-uul</option>
+            <option value="Baynzurh">Chingeltei</option>
+            <option value="Baynzurh">Bayngol</option>
+            <option value="Baynzurh">Suhbaatar</option>
+          </select>
+          <input
+            type="text"
+            className="bordervm font-dunbarbook"
+            placeholder="Address"
+          />
+          <input
+            type="text"
+            className="bordervm font-dunbarbook"
+            placeholder="Number"
+          />
+          <input
+            type="text"
+            className="bordervm font-dunbarbook"
+            style={{ marginBottom: "20px" }}
+            placeholder="Postcode / ZIP"
+          />
+          <OtherModalValue value="Save"></OtherModalValue>
+          <OtherModalValue1></OtherModalValue1>
+        </OtherModal> */}
+        {/* <OtherModal>
+          <OtherModalTitle value="Select or input Coupon" />
+          <p className="font-dunbarbook text-color2">
+            If you have a coupon code, please apply it below.
+          </p>
+          <input
+            type="text"
+            className="bordervm font-dunbarbook"
+            placeholder="Coupon code"
+            style={{ marginBottom: "20px" }}
+          />
+          <OtherModalValue value="Save"></OtherModalValue>
+          <OtherModalValue1></OtherModalValue1>
+        </OtherModal> */}
+      </section>
+    </>
+
+
+
+
+      //       const [other, setOther] = React.useState<{
+  //     desc: boolean;
+  //     info: boolean;
+  //     review: boolean;
+  //   }>({
+  //     desc: true,
+  //     info: false,
+  //     review: false,
+  //   });

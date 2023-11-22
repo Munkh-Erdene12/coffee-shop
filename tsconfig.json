@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/components/list/ListAllProduct.jsx",
     "src/app/auth/publisher/list/page.tsx",
-    "src/hooks/DataHooks.tsx"
+    "src/hooks/DataHooks.tsx",
+    "src/components/header/MainHeader.jsx"
   ],
   "exclude": ["node_modules"]
 }

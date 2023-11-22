@@ -1,0 +1,224 @@
+.detail {
+  @include size(100%, auto);
+  .main-detail {
+    @include size(100%, auto);
+    display: flex;
+    flex-direction: column;
+    .left,
+    .right {
+      @include size(100%, auto);
+    }
+    .left {
+      @include size(100%, 325px);
+      background: #f9f9f9;
+      img {
+        @include size(100%, 325px);
+      }
+    }
+    .right {
+      .static-url {
+        color: $color_2;
+        margin: 40px 0 10px 0;
+        font: 400 20px "DunbarLow-Book";
+      }
+      .title-detail {
+        font: 500 25px "le-monde-livre-classic-byol";
+        color: $color_1;
+        p {
+          margin: 10px 0;
+          font-size: 22px;
+          color: #c7803f;
+        }
+      }
+      .description {
+        color: $color_2;
+        font: 400 20px "DunbarLow-Light";
+        line-height: 27.9px;
+      }
+      .size {
+        display: flex;
+        margin-top: 25px;
+        align-items: center;
+        p,
+        .ks {
+          font: 300 25px "DunbarLow-Light";
+          color: $color_2;
+          text-transform: capitalize;
+          width: 50px;
+        }
+        .sizelm {
+          display: flex;
+          .child_size {
+            @include size(28px, 28px);
+            border: 1px solid $color_2;
+            margin: 0 5px;
+            color: $color_2;
+            @include centerlize(center);
+            text-align: center;
+            padding: 16px;
+            cursor: pointer;
+            &.active {
+              border-color: #c7803f;
+              color: #c7803f;
+            }
+          }
+        }
+      }
+      .count-buy {
+        @include size(100%, 55px);
+        display: flex;
+
+        margin: 20px 0;
+        .count {
+          .count_child {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid $color_2;
+            border-radius: 30px;
+            @include size(120px, 100%);
+            align-items: center;
+            font-size: 22px;
+            color: $color_2;
+            font-family: "DunbarLow-Light";
+            button {
+              cursor: pointer;
+              background: transparent;
+              font-family: "DunbarLow-Light";
+              border: none;
+              outline: none;
+              color: $color_2;
+              font-size: 18px;
+              @include size(33%, 100%);
+              transition: all 0.3s;
+              &:hover {
+                color: #c7803f;
+              }
+            }
+          }
+        }
+        .buy {
+          @include size(160px, 100%);
+          margin-left: 20px;
+          border-radius: 30px;
+          border: 1px solid $color_2;
+          color: $color_1;
+          @include centerlize(center);
+          transition: all 0.3s;
+          cursor: pointer;
+          font-family: "DunbarLow-Light";
+          &:hover {
+            color: $color;
+            background: #c7803f;
+            border-color: #c7803f;
+          }
+        }
+      }
+      .wish-lms {
+        display: flex;
+        .wishlist,
+        .compore {
+          color: $color_2;
+          font-family: "DunbarLow-Light";
+          font-size: 18px;
+          transition: all 0.3s;
+          cursor: pointer;
+          &:hover {
+            color: #c7803f;
+          }
+          svg {
+            margin: 0 5px;
+          }
+        }
+        .compore {
+          margin-left: 20px;
+        }
+      }
+      .tag-k {
+        p {
+          margin: 8px 0;
+          color: $color_2;
+          line-height: 27px;
+          span {
+            color: $color_1;
+          }
+        }
+      }
+    }
+  }
+}
+.othModal {
+  top: 25%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+.bordervm {
+  border: 1px solid #d9d9d9;
+  width: 100%;
+  height: 50px;
+  color: #737373;
+  margin: 5px 0;
+  padding: 8px;
+}
+.closeModal {
+  transform: translateX(-100%);
+}
+.openModal {
+  transform: translateX(0);
+}
+@media (min-width: 768px) {
+  .detail {
+    .main-detail {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 50px;
+      .left,
+      .right {
+        max-width: 48%;
+        width: 100%;
+      }
+      .left {
+        height: 400px;
+        img {
+          height: 100%;
+        }
+      }
+      .right {
+        .static-url {
+          margin: 0 0 10px 0;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .detail {
+    .main-detail {
+      .left {
+        height: 480px;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .detail {
+    .main-detail {
+      .left {
+        height: 600px;
+      }
+      .right {
+        .title-detail {
+          margin: 20px 0;
+        }
+        .size {
+          margin: 30px 0;
+        }
+        .count-buy {
+          margin: 30px 0;
+        }
+        .wish-lms {
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}

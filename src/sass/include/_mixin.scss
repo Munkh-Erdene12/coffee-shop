@@ -1,0 +1,19 @@
+@mixin size($val, $val1) {
+  width: $val;
+  height: $val1;
+}
+@mixin centerlize($val) {
+  display: flex;
+  justify-content: $val;
+  align-items: center;
+}
+@mixin horizontal_mod($val, $val1) {
+  position: absolute;
+  top: $val;
+  left: $val1;
+}
+@mixin column($val) {
+  display: flex;
+  justify-content: $val;
+  flex-direction: column;
+}

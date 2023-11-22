@@ -7,7 +7,7 @@ export default function CoffeLoading({
   listcount,
 }: {
   count: number;
-  name: string;
+  name?: string;
   listcount?: number;
 }) {
   return Array(count)
@@ -26,3 +26,10 @@ export default function CoffeLoading({
       </div>
     ));
 }
+export const CustomLoading = ({ name }: { name: string }) => {
+  return (
+    <div className={`${name}`}>
+      <div className="custom-loader"></div>
+    </div>
+  );
+};

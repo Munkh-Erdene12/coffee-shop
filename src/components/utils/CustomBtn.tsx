@@ -18,13 +18,9 @@ export const CustomBtn: React.FC<CustomBtnProps> = (props) => {
 };
 export const OtherBtn = ({ value }: { value: string }) => {
   return (
-    <div className="booktableBtn w-full h-11 mt-5 flex justify-center items-center bg-publishDark">
-      <div
-        className="w-35 h-full rounded-[46px] border border-solid border-color1 flex justify-center items-center transition
-        hover:bg-color1
-        "
-      >
-        <div className="hover:text-white text-color1 text-[14px]">{value}</div>
+    <div className="booktable-lm">
+      <div className="ls">
+        <div className="book">{value}</div>
       </div>
     </div>
   );

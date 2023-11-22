@@ -49,7 +49,7 @@ const config: Config = {
     },
     fontFamily: {
       Dunbar: "Dunbar Low",
-      Light: "DunbarLow-Light",
+      Light: "DunbarLow Light",
       dunbarbook: "DunbarLow-Book",
       LeMonde: "LeMonde Livre Classic Normal",
     },

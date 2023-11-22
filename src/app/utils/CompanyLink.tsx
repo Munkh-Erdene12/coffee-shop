@@ -54,3 +54,14 @@ export const PageData = [
     href: "/pages/comming-soon",
   },
 ];
+export const detailDesc = [
+  { title: "Taste The World" },
+  {
+    value:
+      "Nec sagittis aliquam malesuada bibendum arcu vitae elementum Augue ut lectus arcu bibendum at varius vel pharetra. Viverra suspendisse potenti nullam ac tortor. Urna porttitor rhoncus dolor purus non enim. At risus viverra adipiscing at in tellus integer feugiat.",
+  },
+  {
+    value1:
+      "Adipiscing tristique risus nec feugiat in fermentum posuere. Neque laoreet suspendisse interdum consectetur. Nibh venenatis cras sed felis. Justo nec ultrices dui sapien eget.",
+  },
+];

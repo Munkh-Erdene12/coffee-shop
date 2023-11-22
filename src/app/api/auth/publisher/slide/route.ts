@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import colors from "colors";
-import { v4 as id } from "uuid";
-import prisma from "@/app/library/prisma";
-import uploadImage from "@/app/library/upload";
+import uploadImage from "@/app/lib/upload";
+import prisma from "@/app/lib/prisma";
 export async function GET() {
   try {
     const data = await prisma.slider.findMany({
@@ -38,7 +37,6 @@ export async function POST(req: Request) {
       }
     }
     const sliderData = {
-      id: id(),
       image: images,
       title: otherFields.title,
       subtitle: otherFields.subtitle,

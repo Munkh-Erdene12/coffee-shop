@@ -5,6 +5,7 @@ import { useCoffeData } from "@/app/utils/Api";
 import { CustomImage } from "@/components/utils/CustomImage";
 import Size from "./Size";
 import CoffeLoading from "@/components/utils/Loading";
+import { MainContext } from "@/context/MainContext";
 interface Product {
   id: string;
   img: string;
@@ -15,6 +16,7 @@ interface Product {
 export default function MainCoffe4() {
   const path = useRouter();
   const { data, isLoading } = useCoffeData();
+  const ctx = React.useContext(MainContext);
   const [product, setProduct] = React.useState<Product[]>([]);
   React.useEffect(() => {
     if (data) {
@@ -35,6 +37,7 @@ export default function MainCoffe4() {
             className={`main_coffe_4 flex justify-center items-center flex-col`}
             onClick={() => {
               path.push(`/detail?id=${el.id}`);
+              ctx.dataFetch(el);
             }}
           >
             <div className="img_4 w-full h-[350px] cursor-pointer rounded-full relative">

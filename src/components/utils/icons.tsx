@@ -10,7 +10,18 @@ import {
 } from "react-icons/hi";
 import { BsUpload, BsMoon } from "react-icons/bs";
 import { TiMediaPlayOutline } from "react-icons/ti";
-import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { IoStarOutline } from "react-icons/io5";
+import { GoPlus } from "react-icons/go";
+import { RiCouponLine } from "react-icons/ri";
+import { FiMinus, FiBox } from "react-icons/fi";
+import { FaBarsStaggered } from "react-icons/fa6";
+import {
+  FaRegEdit,
+  FaTrashAlt,
+  FaCompressAlt,
+  FaStar,
+  FaPencilAlt,
+} from "react-icons/fa";
 import {
   MdKeyboardArrowDown,
   MdKeyboardArrowRight,
@@ -22,6 +33,7 @@ import {
   AiOutlineUnorderedList,
   AiOutlineOrderedList,
   AiOutlineDownload,
+  AiOutlineHeart,
 } from "react-icons/ai";
 export default function icons() {
   let obj = {
@@ -44,6 +56,16 @@ export default function icons() {
     HiOutlineArrowSmDown,
     HiArrowSmRight,
     HiOutlineArrowSmUp,
+    FaBarsStaggered,
+    AiOutlineHeart,
+    FaCompressAlt,
+    FaStar,
+    IoStarOutline,
+    GoPlus,
+    FiMinus,
+    FaPencilAlt,
+    FiBox,
+    RiCouponLine,
   };
   return obj;
 }

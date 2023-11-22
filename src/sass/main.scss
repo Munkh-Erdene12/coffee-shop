@@ -1,0 +1,47 @@
+$shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+$font: "DunbarLowBold";
+$font_1: "DunbarLow-Book";
+$font_2: "DunbarLow-Medium";
+$color: #fff;
+$color_1: #291206;
+$color_1_hover: #85460d;
+$color_2: #737373;
+$color_3: #c7803f;
+.loadingCustom {
+  background-size: 400%;
+  animation: loading 1s linear infinite;
+  background-image: linear-gradient(
+    to right,
+    #f2f2f2 0%,
+    #f2f2f2 30%,
+    #cacaca 45%,
+    #cacaca 50%,
+    #f2f2f2 60%,
+    #f2f2f2 100%
+  );
+}
+@keyframes loading {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+.custom-loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #c7803f);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+}
+@keyframes s3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@import "./include/mixin";
+@import "./include/header";
+@import "./include/OtherHeader.scss";
+@import "./include/detail";
